@@ -60,7 +60,7 @@ if ($Setup) {
     $factManifest = Join-Path $repoRoot "$Date/facts.json"
     $facts = $null
     if (Test-Path -LiteralPath $factManifest) {
-        $facts = @(Get-Content -LiteralPath $factManifest -Raw -Encoding UTF8 | ConvertFrom-Json)
+        $facts = Get-Content -LiteralPath $factManifest -Raw -Encoding UTF8 | ConvertFrom-Json
         $publishPaths += @("$Date/facts.json", "$Date/preview.html")
         if ($facts.Count -ne 5) { throw 'The fact manifest must contain five news records.' }
         for ($index = 0; $index -lt 5; $index++) {

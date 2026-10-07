@@ -1,0 +1,74 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-06",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://mistral.ai/news/mistral-large-4/",
+      "https://docs.mistral.ai/models/mistral-large",
+      "https://www.lemonde.fr/en/economy/article/2026/10/06/mistral-ai-unveils-new-ai-model-aimed-at-narrowing-the-gap-with-top-chinese-competitors_6758318_19.html"
+    ],
+    "notes": "API公共预览；权重计划月底交付。公告1T/49B，文档1.05T/52B，正文不强行统一。训练与性能数字为厂商口径。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-05",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://reflection.ai/blog/introducing-beam",
+      "https://platform.reflection.ai/"
+    ],
+    "notes": "48小时补充；模型处于红队测试，候补早期访问，不把计划Apache 2.0权重写成已开放。规模与效率数据为公司口径。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-06",
+    "status": [
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.moneycontrol.com/news/business/companies/ai-firm-elevenlabs-to-invest-hundreds-of-millions-of-dollars-in-india-14046010.html",
+      "https://elevenlabs.io/india",
+      "https://elevenlabs.io/agents"
+    ],
+    "notes": "路透社采访，投资为意向，未披露确切金额；采用数字为公司自述。官方产品页较旧语言数字不用于交叉验证14种。图片为明确标注的产品背景素材。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-06",
+    "status": [
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.marketscreener.com/news/south-korea-plans-to-develop-3-5-billion-frontier-ai-model-starting-next-year-ce785dd8dc88f327",
+      "https://m.ajupress.com/view/20261006132408570",
+      "https://en.yna.co.kr/view/AEN20260908011100320"
+    ],
+    "notes": "项目细节报道/国会审计为近48小时；4.7万亿金额9月已提出，明确标为背景；预算提案非批准与已执行。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-06",
+    "status": [
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.marketscreener.com/news/openai-anthropic-tell-australia-they-would-welcome-data-breach-rules-ce785dd8dc8bf024",
+      "https://www.abc.net.au/news/2026-10-06/openai-hearing-apology-key-takeaways/107235640"
+    ],
+    "notes": "路透社和ABC现场报道独立核验；支持提案不代表新制度已生效。防护措施是公司表态，非已验证效果。"
+  }
+]

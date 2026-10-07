@@ -14,6 +14,7 @@
 - `images.json`：真实图片URL、新闻序号、出处、署名、说明及裁切方式。
 - `facts.json`：五条新闻的事实状态、实际事件日期、来源和核查说明。
 - `preview.html`：包含固定版式的独立预览。
+- `cover.png`、`cover.json`：以当天头条为主题的16:9首页封面与编辑插画说明；`wordpress.json.featured_image` 指向封面。
 
 先同步：
 
@@ -39,3 +40,5 @@ powershell.exe -NoProfile -File D:/WebstormProject/ai-daily-bridge/scripts/Publi
 用户已授权同步、当日归档、限定文件提交和普通推送，无需逐日重复确认。脚本只快进同步main，仅提交指定文件，拒绝带入其他文件的未推送提交，推送后核对远程SHA。禁止强制推送、破坏性reset或擅自修改认证/安全配置。失败保留稿件与提交，诊断不写入正文。
 
 完整且已推送的同日日报默认不重复；用户明确要求重新生成时可更新该日日报。历史日期默认保留。`-Setup`只发布本项目规范、参考模板和渲染/发布脚本。
+
+GitHub 推送后的 WordPress 发布由[独立 n8n 工作流](https://qnn8n.sparklight.ccwu.cc/workflow/J8pcNkSO50zLT3Hb)处理，每5分钟检查当天稿件，固定加入“AI 每日简报”分类（ID 2），上传特色图片并防止重复创建正常文章。回收站或已删除文章允许重发。配置与维护见 [n8n/README.md](n8n/README.md)。

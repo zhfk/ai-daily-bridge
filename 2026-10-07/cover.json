@@ -1,0 +1,8 @@
+{
+  "file": "cover.png",
+  "news_index": 1,
+  "alt": "Mistral Large 4、开放模型与欧洲自主算力主题编辑插画",
+  "caption": "AI 生成的编辑插画：Mistral Large 4、开放模型与欧洲自主算力主题，非真实数据中心或官方产品照片。",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: wide 16:9 WordPress technology-news homepage carousel background, 2048x1152 preferred. Create a polished premium editorial illustration for today's lead story: Mistral Large 4 public preview, European AI sovereignty, open model weights and European-owned compute. A warm orange architectural sculpture made from stacked luminous square modules, subtly evoking Mistral's pixelated M, rises above a precise European data-center landscape with elegantly simplified server racks and a faint continental Europe silhouette integrated into the floor circuitry. Render as refined 3D editorial art, brushed aluminum, translucent glass, warm orange light against layered deep blue and muted slate; textured depth, restrained sophistication. Strong main subject in center-right, recognizably about the specific Mistral/open-model/European-compute story, not random generic AI art. Left and lower third should have quiet medium-dark blue negative space for the website's existing white headline. Overall clearly visible rich blue and orange image, not an almost-black empty background. Protect important elements within central 70% for responsive crop. No text, numbers, watermark, stock-photo people, robot, brain, fake official product photograph or charts. This is an editorial conceptual illustration, not documentary photography. Opaque full background."
+}

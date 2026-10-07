@@ -52,6 +52,12 @@ if ($Setup) {
 } else {
     [void][DateTime]::ParseExact($Date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)
     $publishPaths = @("$Date/brief.md", "$Date/wordpress.json")
+    $coverManifestPath = Join-Path $repoRoot "$Date/cover.json"
+    if (Test-Path -LiteralPath $coverManifestPath) {
+        $cover = Get-Content -LiteralPath $coverManifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($cover.file -cne 'cover.png' -or $cover.news_index -ne 1 -or [string]::IsNullOrWhiteSpace([string]$cover.alt) -or [string]::IsNullOrWhiteSpace([string]$cover.caption)) { throw 'Invalid daily cover manifest.' }
+        $publishPaths += @("$Date/cover.png", "$Date/cover.json")
+    }
     $imageManifest = Join-Path $repoRoot "$Date/images.json"
     if (Test-Path -LiteralPath $imageManifest) {
         [void](Get-Content -LiteralPath $imageManifest -Raw -Encoding UTF8 | ConvertFrom-Json)

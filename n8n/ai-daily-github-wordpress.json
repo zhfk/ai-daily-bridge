@@ -1,0 +1,858 @@
+{
+  "name": "GitHub 当日 AI 简报 → WordPress · 严格防重",
+  "nodes": [
+    {
+      "id": "6b3ec89c-2e9f-439f-8fe1-ded3ac43cb26",
+      "name": "每5分钟检查",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -220,
+        0
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "2b40f0b0-99f7-4132-a5b8-0890430fcb84",
+      "name": "手动核验",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        180
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a73604ce-d8a9-4942-a867-5036f732b9d8",
+      "name": "北京时间日期",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const date = $now.setZone('Asia/Shanghai').toFormat('yyyy-MM-dd');\nreturn [{ json: { date, key: 'zhfk/ai-daily-bridge:' + date, slug: 'ai-daily-' + date, owner: String($execution.id) } }];"
+      }
+    },
+    {
+      "id": "e75307f8-eea5-491e-8750-7932a6d682e9",
+      "name": "读取持久记录",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ],
+      "parameters": {
+        "resource": "row",
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PVlhp1R6msS5HrIs"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "1"
+            }
+          ]
+        },
+        "options": {},
+        "returnAll": false,
+        "limit": 1
+      },
+      "alwaysOutputData": true,
+      "retryOnFail": false
+    },
+    {
+      "id": "bd8390ce-78fd-4cc1-8fd2-9d201f80baf5",
+      "name": "当日未处理才继续",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const row = $input.first().json;\nif (Number(row.id) !== 1 || typeof row.ledger !== 'string') throw new Error('发布记录缺失；停止发布，禁止自动重建或清空记录');\nconst ledger = JSON.parse(row.ledger);\nif (ledger.version !== 1 || !ledger.dates || Array.isArray(ledger.dates)) throw new Error('发布记录格式错误');\nconst context = $('北京时间日期').first().json;\nconst previous = ledger.dates[context.key];\nif (previous && ['reserved', 'needs_review'].includes(previous.status)) return [];\nif (previous && !['published', 'existing'].includes(previous.status)) throw new Error('未知发布状态；停止发布');\nreturn [{ json: { ...context, ledgerBefore: row.ledger } }];"
+      }
+    },
+    {
+      "id": "47616cc4-9032-4344-800c-c74228081308",
+      "name": "读取GitHub当日稿",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "parameters": {
+        "url": "=https://raw.githubusercontent.com/zhfk/ai-daily-bridge/main/{{ $json.date }}/wordpress.json",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "text",
+              "outputPropertyName": "body"
+            }
+          }
+        }
+      },
+      "retryOnFail": false
+    },
+    {
+      "id": "910f0c9b-2d82-43de-a383-e03eb8713b52",
+      "name": "校验最终稿",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nif (response.statusCode === 404) return [];\nif (response.statusCode !== 200) throw new Error('GitHub读取失败：HTTP ' + response.statusCode);\nconst context = $('当日未处理才继续').first().json;\nif (typeof response.body !== 'string') throw new Error('GitHub文件响应不完整');\nconst brief = JSON.parse(response.body.replace(/^\\uFEFF/, ''));\nif (brief.slug !== context.slug || typeof brief.title !== 'string' || !brief.title.trim() || brief.title.length > 40 || typeof brief.excerpt !== 'string' || !brief.excerpt.trim() || typeof brief.content !== 'string') throw new Error('稿件字段或日期不正确');\nconst headings = [...brief.content.matchAll(/<h2\\b[^>]*>([\\s\\S]*?)<\\/h2>/gi)].map(m => m[1].replace(/<[^>]*>/g, '').trim());\nif (/<h1\\b/i.test(brief.content) || headings.length !== 5 || headings.some((h, i) => !h.startsWith((i + 1) + '. ')) || /<(script|iframe|form)\\b|javascript\\s*:/i.test(brief.content)) throw new Error('正文结构不符合日报要求');\nconst [y, m, d] = context.date.split('-').map(Number);\nif (!brief.content.includes('AI 与科技每日简报｜' + y + '年' + m + '月' + d + '日')) throw new Error('正文标题日期错误');\nif (!Array.isArray(brief.tags) || brief.tags.length < 5 || brief.tags.length > 10 || brief.tags.some(t => typeof t !== 'string' || !t.trim() || t.length > 60)) throw new Error('标签不合法');\nbrief.tags = [...new Set(brief.tags.map(t => t.trim()))];\nreturn [{ json: { ...context, sourceEtag: response.headers?.etag || null, brief } }];"
+      }
+    },
+    {
+      "id": "bdf3aa27-5f1a-4b06-8f7f-765f65902c4d",
+      "name": "检查WordPress已有文章",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        0
+      ],
+      "parameters": {
+        "url": "https://aiaware.crst.win/wp-json/wp/v2/posts",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "slug",
+              "value": "={{ $json.slug + \",\" + $json.slug + \"__trashed\" }}"
+            },
+            {
+              "name": "status",
+              "value": "publish,future,draft,pending,private,trash"
+            },
+            {
+              "name": "context",
+              "value": "edit"
+            },
+            {
+              "name": "_fields",
+              "value": "id,slug,status,link"
+            },
+            {
+              "name": "per_page",
+              "value": "100"
+            }
+          ]
+        },
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "retryOnFail": false,
+      "credentials": {
+        "wordpressApi": {
+          "id": "Nudhkvpw8yEdJlOo",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "id": "dd791cd2-61d6-4473-b9f1-053564099faf",
+      "name": "已存在则跳过",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        320
+      ],
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nif (response.statusCode !== 200 || !Array.isArray(response.body)) throw new Error('无法完整检查WordPress文章；停止发布');\nconst context = $('校验最终稿').first().json;\nif (response.body.some(post => !Number.isSafeInteger(post.id) || post.id < 1 || ![context.slug, context.slug + '__trashed'].includes(post.slug) || !['publish', 'future', 'draft', 'pending', 'private', 'trash'].includes(post.status))) throw new Error('已有文章响应无法核验；停止发布');\nif (response.body.some(post => post.status !== 'trash')) return [];\nreturn [{ json: context }];"
+      }
+    },
+    {
+      "id": "1d2e72b6-104e-4dd5-9bdc-f72352a88df9",
+      "name": "准备头条封面",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        320
+      ],
+      "parameters": {
+        "jsCode": "const context = $input.first().json;\nconst cover = context.brief.featured_image;\nlet coverUrl, coverAlt, coverCaption;\nif (cover) {\n  if (cover.file !== 'cover.png' || cover.news_index !== 1 || typeof cover.alt !== 'string' || !cover.alt.trim() || typeof cover.caption !== 'string' || !cover.caption.trim()) throw new Error('封面字段不合法');\n  coverUrl = 'https://raw.githubusercontent.com/zhfk/ai-daily-bridge/main/' + context.date + '/cover.png';\n  coverAlt = cover.alt;\n  coverCaption = cover.caption;\n} else {\n  const lead = context.brief.content.split(/<h2\\b[^>]*>/i)[1]?.split(/<h2\\b/i)[0] || '';\n  const match = lead.match(/<img\\b[^>]*src=\"([^\"]+)\"[^>]*>/i);\n  if (!match) throw new Error('头条没有封面或可用真实图片；请补充当日封面');\n  coverUrl = match[1].replace(/&amp;/g, '&');\n  coverAlt = 'AI 每日简报 ' + context.date + ' 头条图片';\n  coverCaption = '头条原始图片，出处与署名见正文。';\n}\nif (!/^https:\\/\\/[^\\s<>\"]+$/.test(coverUrl)) throw new Error('封面地址不合法');\nreturn [{ json: { ...context, coverUrl, coverAlt, coverCaption } }];"
+      }
+    },
+    {
+      "id": "1d811541-2d76-46af-924d-b19fbbed5a3f",
+      "name": "下载当日封面",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        320
+      ],
+      "parameters": {
+        "url": "={{ $json.coverUrl }}",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "file",
+              "outputPropertyName": "cover"
+            }
+          }
+        }
+      },
+      "retryOnFail": false
+    },
+    {
+      "id": "12b34fa4-0831-4223-b6fd-14caec85be4e",
+      "name": "核验封面文件",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        320
+      ],
+      "parameters": {
+        "jsCode": "const item = $input.first();\nconst cover = item.binary?.cover;\nif (!cover || !['image/png', 'image/jpeg', 'image/webp'].includes(cover.mimeType)) throw new Error('封面下载失败或不是可用图片；停止发文');\nreturn [{ json: $('准备头条封面').first().json, binary: item.binary }];"
+      }
+    },
+    {
+      "id": "c3ecfe68-4c07-47cd-8266-3e3568e22180",
+      "name": "上传特色图片",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        320
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://aiaware.crst.win/wp-json/wp/v2/media",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "title",
+              "value": "={{ $json.slug + \"-cover\" }}"
+            },
+            {
+              "name": "alt_text",
+              "value": "={{ $json.coverAlt }}"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $json.coverCaption }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "={{ $binary.cover.mimeType }}"
+            },
+            {
+              "name": "Content-Disposition",
+              "value": "=attachment; filename=\"ai-daily-{{ $json.date }}-cover.png\""
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "cover",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "retryOnFail": false,
+      "credentials": {
+        "wordpressApi": {
+          "id": "Nudhkvpw8yEdJlOo",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "id": "df0265b6-e1b3-4886-83d4-cc04614011aa",
+      "name": "核验特色图片",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        320
+      ],
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconst media = response.body;\nif (response.statusCode !== 201 || !Number.isSafeInteger(media?.id) || media.id < 1 || media.media_type !== 'image' || typeof media.source_url !== 'string' || !media.source_url.startsWith('https://aiaware.crst.win/')) throw new Error('特色图片上传失败；尚未占位，可修复后重试');\nconst context = $('准备头条封面').first().json;\nif (media.alt_text !== context.coverAlt) throw new Error('封面替代文本未保存');\nreturn [{ json: { ...context, featuredMediaId: media.id, featuredMediaUrl: media.source_url } }];"
+      }
+    },
+    {
+      "id": "bd0f61d0-2a9b-48a9-8065-1f159718e375",
+      "name": "准备标签",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        640
+      ],
+      "parameters": {
+        "jsCode": "return $('校验最终稿').first().json.brief.tags.map(name => ({ json: { name } }));"
+      }
+    },
+    {
+      "id": "e79e2d56-492e-4dec-a0f6-37df7ddccbd1",
+      "name": "创建或取得标签",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        640
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://aiaware.crst.win/wp-json/wp/v2/tags",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { name: $json.name } }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "retryOnFail": false,
+      "credentials": {
+        "wordpressApi": {
+          "id": "Nudhkvpw8yEdJlOo",
+          "name": "Wordpress account"
+        }
+      }
+    },
+    {
+      "id": "e2fac6fd-1522-4324-8b3b-45559c383e7b",
+      "name": "汇总标签并准备占位",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        640
+      ],
+      "parameters": {
+        "jsCode": "const tagIds = $input.all().map(item => {\n  const r = item.json;\n  const id = r.statusCode === 201 ? r.body?.id : r.statusCode === 400 && r.body?.code === 'term_exists' ? r.body?.data?.term_id : null;\n  if (!Number.isSafeInteger(Number(id)) || Number(id) < 1) throw new Error('WordPress标签处理失败；尚未占位，可修复后重试');\n  return Number(id);\n});\nconst context = $('核验特色图片').first().json;\nif (tagIds.length !== context.brief.tags.length) throw new Error('标签响应不完整');\nif ($now.setZone('Asia/Shanghai').toFormat('yyyy-MM-dd') !== context.date) return [];\nconst ledger = JSON.parse(context.ledgerBefore);\nconst previous = ledger.dates[context.key];\nif (previous && ['reserved', 'needs_review'].includes(previous.status)) return [];\nledger.dates[context.key] = { status: 'reserved', owner: context.owner, date: context.date, slug: context.slug, sourceEtag: context.sourceEtag, featuredMediaId: context.featuredMediaId, reservedAt: $now.toISO(), attempt: (previous?.attempt || 0) + 1, ...(previous?.postId ? { previousPostId: previous.postId } : {}) };\nreturn [{ json: { ...context, tagIds: [...new Set(tagIds)], ledgerClaim: JSON.stringify(ledger) } }];"
+      }
+    },
+    {
+      "id": "f6680d2f-69d1-4426-abc1-5793f9790846",
+      "name": "原子抢占发布权",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        660,
+        640
+      ],
+      "parameters": {
+        "resource": "row",
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PVlhp1R6msS5HrIs"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "1"
+            },
+            {
+              "keyName": "ledger",
+              "condition": "eq",
+              "keyValue": "={{ $json.ledgerBefore }}"
+            }
+          ]
+        },
+        "options": {},
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ledger": "={{ $json.ledgerClaim }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ledger",
+              "displayName": "ledger",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "alwaysOutputData": true,
+      "retryOnFail": false
+    },
+    {
+      "id": "df99b8bd-19e5-4691-a953-65b5dd8aa5a1",
+      "name": "核验占位归属",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        640
+      ],
+      "parameters": {
+        "jsCode": "const row = $input.first().json;\nconst context = $('汇总标签并准备占位').first().json;\nif (typeof row.ledger !== 'string') return [];\nconst record = JSON.parse(row.ledger).dates?.[context.key];\nif (!record || record.owner !== context.owner || record.status !== 'reserved') return [];\nif ($now.setZone('Asia/Shanghai').toFormat('yyyy-MM-dd') !== context.date) throw new Error('已跨日，保留占位并停止发布');\nreturn [{ json: context }];"
+      }
+    },
+    {
+      "id": "8eabd68c-9795-46e2-b7f1-e4a89009a0ee",
+      "name": "发布一次（禁止重试）",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        640
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://aiaware.crst.win/wp-json/wp/v2/posts",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { title: $json.brief.title, slug: $json.slug, excerpt: $json.brief.excerpt, content: $json.brief.content, tags: $json.tagIds, categories: [2], featured_media: $json.featuredMediaId, status: \"publish\" } }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "wordpressApi",
+        "options": {
+          "timeout": 30000,
+          "response": {
+            "response": {
+              "fullResponse": true,
+              "neverError": true,
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "retryOnFail": false,
+      "credentials": {
+        "wordpressApi": {
+          "id": "Nudhkvpw8yEdJlOo",
+          "name": "Wordpress account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "025e7548-58d0-4111-bd00-6a1f559d3bca",
+      "name": "整理发布回执",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        960
+      ],
+      "parameters": {
+        "jsCode": "const context = $('核验占位归属').first().json;\nconst response = $input.first().json;\nconst post = response.body;\nconst confirmed = response.statusCode === 201 && Number.isSafeInteger(post?.id) && post.id > 0 && post.slug === context.slug && post.status === 'publish' && Array.isArray(post.categories) && post.categories.includes(2) && post.featured_media === context.featuredMediaId && typeof post.link === 'string' && post.link.startsWith('https://aiaware.crst.win/');\nconst ledger = JSON.parse(context.ledgerClaim);\nledger.dates[context.key] = { ...ledger.dates[context.key], status: confirmed ? 'published' : 'needs_review', finishedAt: $now.toISO(), ...(post?.id ? { postId: post.id } : {}), ...(confirmed ? { link: post.link } : {}), httpStatus: response.statusCode || null };\nreturn [{ json: { date: context.date, key: context.key, owner: context.owner, confirmed, postId: post?.id || null, link: confirmed ? post.link : null, ledgerClaim: context.ledgerClaim, ledgerReceipt: JSON.stringify(ledger) } }];"
+      }
+    },
+    {
+      "id": "a91309c9-27aa-444f-8ea5-47d6a330e525",
+      "name": "持久保存回执",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        220,
+        960
+      ],
+      "parameters": {
+        "resource": "row",
+        "operation": "update",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "PVlhp1R6msS5HrIs"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "1"
+            },
+            {
+              "keyName": "ledger",
+              "condition": "eq",
+              "keyValue": "={{ $json.ledgerClaim }}"
+            }
+          ]
+        },
+        "options": {},
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ledger": "={{ $json.ledgerReceipt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ledger",
+              "displayName": "ledger",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "alwaysOutputData": true,
+      "retryOnFail": false
+    },
+    {
+      "id": "fab79bb3-d481-41e7-ba6d-f9fd7318f630",
+      "name": "完成或要求核查",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        960
+      ],
+      "parameters": {
+        "jsCode": "const receipt = $('整理发布回执').first().json;\nconst row = $input.first().json;\nif (typeof row.ledger !== 'string' || JSON.parse(row.ledger).dates?.[receipt.key]?.owner !== receipt.owner) throw new Error('回执保存遇到冲突；占位仍保留，禁止直接重发，请核查WordPress');\nif (!receipt.confirmed) throw new Error('发布结果需人工核查；当日已永久占位，自动重试不会再次发帖');\nreturn [{ json: { status: 'published', date: receipt.date, postId: receipt.postId, link: receipt.link } }];"
+      }
+    },
+    {
+      "id": "eb2b9188-2aa9-4566-8bfa-b73dfa6e61aa",
+      "name": "使用说明与不重发保障",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        0
+      ],
+      "parameters": {
+        "content": "## GitHub → WordPress 每日报\n北京时间每5分钟检查 main 分支 YYYY-MM-DD/wordpress.json。只发布当日。\n\n**防重**：已发布、草稿、待审、私密、定时文章存在则跳过。按用户要求，回收站文章或已清空的文章允许重新发布。每次重新发布仍须原子抢占。\n\n持久单行 ledger 用旧值条件更新（CAS）抢占；核验执行 ID 后才能调用发帖。发布 POST 禁止自动重试。reserved / needs_review 永不自动释放；结果不明时先人工核对。\n\n成功记录 postId / link / 源文件 ETag / 发布次数。流程重启、重复推送、手动重跑和当日改稿不会复制仍存在的正常文章。\n\n不要清空记录、复制独立记录表或仅重跑发布节点。保留和备份 Data Table。",
+        "width": 560,
+        "height": 1100
+      }
+    }
+  ],
+  "connections": {
+    "每5分钟检查": {
+      "main": [
+        [
+          {
+            "node": "北京时间日期",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "手动核验": {
+      "main": [
+        [
+          {
+            "node": "北京时间日期",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "北京时间日期": {
+      "main": [
+        [
+          {
+            "node": "读取持久记录",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "读取持久记录": {
+      "main": [
+        [
+          {
+            "node": "当日未处理才继续",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "当日未处理才继续": {
+      "main": [
+        [
+          {
+            "node": "读取GitHub当日稿",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "读取GitHub当日稿": {
+      "main": [
+        [
+          {
+            "node": "校验最终稿",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "校验最终稿": {
+      "main": [
+        [
+          {
+            "node": "检查WordPress已有文章",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "检查WordPress已有文章": {
+      "main": [
+        [
+          {
+            "node": "已存在则跳过",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "已存在则跳过": {
+      "main": [
+        [
+          {
+            "node": "准备头条封面",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "准备标签": {
+      "main": [
+        [
+          {
+            "node": "创建或取得标签",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "创建或取得标签": {
+      "main": [
+        [
+          {
+            "node": "汇总标签并准备占位",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "汇总标签并准备占位": {
+      "main": [
+        [
+          {
+            "node": "原子抢占发布权",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "原子抢占发布权": {
+      "main": [
+        [
+          {
+            "node": "核验占位归属",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "核验占位归属": {
+      "main": [
+        [
+          {
+            "node": "发布一次（禁止重试）",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "发布一次（禁止重试）": {
+      "main": [
+        [
+          {
+            "node": "整理发布回执",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "整理发布回执": {
+      "main": [
+        [
+          {
+            "node": "持久保存回执",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "持久保存回执": {
+      "main": [
+        [
+          {
+            "node": "完成或要求核查",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "准备头条封面": {
+      "main": [
+        [
+          {
+            "node": "下载当日封面",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "下载当日封面": {
+      "main": [
+        [
+          {
+            "node": "核验封面文件",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "核验封面文件": {
+      "main": [
+        [
+          {
+            "node": "上传特色图片",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "上传特色图片": {
+      "main": [
+        [
+          {
+            "node": "核验特色图片",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "核验特色图片": {
+      "main": [
+        [
+          {
+            "node": "准备标签",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Shanghai",
+    "executionTimeout": 240,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "active": false,
+  "pinData": {}
+}

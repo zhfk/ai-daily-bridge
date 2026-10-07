@@ -22,7 +22,7 @@ Mistral 于10月6日发布 **Large 4 公共预览**，代号“Le Chonk”。目
 
 ## 2. Reflection 推出 Beam：欧美重返开放模型竞争
 
-Reflection 在10月5日公布首个旗舰模型 **Beam**，这是本期48小时补充事件。官方披露其拥有 **5,010 亿总参数、230 亿激活参数**，针对编码、推理和 Agent 工作流；预训练使用约23.8万亿 token，强化学习阶段在约10,500块 NVIDIA GB300 GPU 上生成超过1亿次 rollout。训练规模和性能数字均属公司口径。
+Reflection 在10月5日公布首个旗舰模型 **Beam**，这是本期48小时补充事件。它当前是 **纯文本模型**，不能直接接收图像或音频输入。官方披露其拥有 **5,010 亿总参数、230 亿激活参数**，针对编码、推理和 Agent 工作流；预训练使用约23.8万亿 token，强化学习阶段在约10,500块 NVIDIA GB300 GPU 上生成超过1亿次 rollout。训练规模和性能数字均属公司口径。
 
 真正决定企业何时能用它的，是交付状态：Beam 仍在最后的红队测试和评估，早期访问采用候补名单；公司计划本月以 Apache 2.0 开放权重，并发布技术报告、模型卡与开发工具。**宣布开放路线，不等于今天已经可以下载自部署。**
 
@@ -32,7 +32,7 @@ Reflection 在10月5日公布首个旗舰模型 **Beam**，这是本期48小时�
 
 **行动建议：** 登记早期访问，准备真实代码库和多步工具任务；待完整发布后比较任务通过率、生成 token、显存需求与服务成本，并复测安全边界。
 
-来源：[Beam 官方技术介绍](https://reflection.ai/blog/introducing-beam) · [Reflection 早期访问入口](https://platform.reflection.ai/)
+来源：[Beam 官方技术介绍](https://reflection.ai/blog/introducing-beam) · [TechCrunch 发布报道](https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/)
 
 ---
 

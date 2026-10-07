@@ -24,9 +24,9 @@
     ],
     "sources": [
       "https://reflection.ai/blog/introducing-beam",
-      "https://platform.reflection.ai/"
+      "https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/"
     ],
-    "notes": "48小时补充；模型处于红队测试，候补早期访问，不把计划Apache 2.0权重写成已开放。规模与效率数据为公司口径。"
+    "notes": "48小时补充；模型处于红队测试，候补早期访问，不把计划Apache 2.0权重写成已开放。规模与效率数据为公司口径。 TechCrunch报道发布时间为10月5日12:33 PDT，核查本期48小时补充窗口；该时间不是官方公告精确发布时间。纯文本限制来自官方说明。"
   },
   {
     "news_index": 3,

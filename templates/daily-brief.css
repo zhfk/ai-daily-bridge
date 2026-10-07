@@ -1,0 +1,25 @@
+.ai-daily, .ai-daily * { box-sizing: border-box; }
+.ai-daily { margin: 24px 40px 24px 24px; color: #111; background: #fff; font: 18px/1.65 Arial, "Microsoft YaHei", sans-serif; overflow-wrap: anywhere; }
+.ai-daily p { margin: 0 0 18px; }
+.ai-daily .daily-title { font-size: 28px; line-height: 1.35; margin: 0 0 12px; font-weight: 700; }
+.ai-daily h2 { font-size: 24px; line-height: 1.4; margin: 24px 0 14px; font-weight: 700; }
+.ai-daily strong { font-weight: 700; }
+.ai-daily a { color: inherit; text-decoration: underline; text-decoration-color: #aaa; text-underline-offset: 3px; }
+.ai-daily a:hover { text-decoration-color: #111; }
+.ai-daily hr { border: 0; border-top: 1px solid #d6d6d6; margin: 34px 0; }
+.ai-daily .brief-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0 0 14px; }
+.ai-daily .brief-gallery a { width: min(360px, 100%); display: block; }
+.ai-daily .brief-gallery img { display: block; width: 100%; aspect-ratio: 5 / 4; border: 1px solid #ddd; border-radius: 12px; background: #fff; }
+.ai-daily .image-credit { font-size: 12px; color: #666; margin-top: -4px; margin-bottom: 14px; }
+.ai-daily .source-links { font-size: 15px; }
+.ai-daily .editorial-title { font-size: 22px; margin-bottom: 6px; }
+@media (max-width: 700px) {
+  .ai-daily { margin: 18px; font-size: 16px; }
+  .ai-daily .daily-title { font-size: 24px; }
+  .ai-daily h2 { font-size: 20px; }
+  .ai-daily .brief-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+@media (max-width: 420px) {
+  .ai-daily .brief-gallery { grid-template-columns: 1fr; }
+  .ai-daily .brief-gallery a { width: 100%; }
+}

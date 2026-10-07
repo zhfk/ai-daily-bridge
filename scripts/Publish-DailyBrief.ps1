@@ -1,4 +1,4 @@
-[CmdletBinding(DefaultParameterSetName = 'Daily')]
+﻿[CmdletBinding(DefaultParameterSetName = 'Daily')]
 param(
     [Parameter(Mandatory = $true, ParameterSetName = 'Daily')]
     [ValidatePattern('^\d{4}-\d{2}-\d{2}$')]
@@ -47,7 +47,7 @@ if ($SyncOnly) {
 }
 
 if ($Setup) {
-    $publishPaths = @('README.md', 'DAILY_BRIEF_PROMPT.md', 'scripts/Publish-DailyBrief.ps1')
+    $publishPaths = @('README.md', 'DAILY_BRIEF_PROMPT.md', 'scripts/Publish-DailyBrief.ps1', 'scripts/render-brief.cjs', 'scripts/verify-preview.cjs', 'templates/daily-brief.css', 'templates/reference.png', '.gitignore')
     $commitMessage = 'docs: configure daily AI brief workflow'
 } else {
     [void][DateTime]::ParseExact($Date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)
@@ -56,6 +56,25 @@ if ($Setup) {
     if (Test-Path -LiteralPath $imageManifest) {
         [void](Get-Content -LiteralPath $imageManifest -Raw -Encoding UTF8 | ConvertFrom-Json)
         $publishPaths += "$Date/images.json"
+    }
+    $factManifest = Join-Path $repoRoot "$Date/facts.json"
+    $facts = $null
+    if (Test-Path -LiteralPath $factManifest) {
+        $facts = @(Get-Content -LiteralPath $factManifest -Raw -Encoding UTF8 | ConvertFrom-Json)
+        $publishPaths += @("$Date/facts.json", "$Date/preview.html")
+        if ($facts.Count -ne 5) { throw 'The fact manifest must contain five news records.' }
+        for ($index = 0; $index -lt 5; $index++) {
+            $fact = $facts[$index]
+            if ($fact.news_index -ne ($index + 1)) { throw 'Fact records must be numbered 1 to 5.' }
+            [void][DateTime]::ParseExact([string]$fact.event_date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)
+            if (@($fact.status).Count -eq 0) { throw 'Each fact record needs a status.' }
+            foreach ($status in $fact.status) {
+                if ($status -notin @('CONFIRMED', 'COMPANY_CLAIM', 'MEDIA_REPORT', 'UNCONFIRMED', 'ANALYSIS')) {
+                    throw 'Unknown fact status.'
+                }
+            }
+            if (@($fact.sources).Count -lt 2 -or @($fact.sources).Count -gt 4) { throw 'Each news record needs 2 to 4 sources.' }
+        }
     }
     foreach ($relativePath in $publishPaths) {
         if (-not (Test-Path -LiteralPath (Join-Path $repoRoot $relativePath) -PathType Leaf)) {
@@ -82,14 +101,36 @@ if ($Setup) {
     if ([regex]::Matches($markdown, '(?m)^##\s+\S').Count -ne 5 -or [regex]::Matches($metadata.content, '(?i)<h2\b').Count -ne 5) {
         throw 'Both Markdown and HTML must contain exactly five news H2 headings.'
     }
+    $newsHeadings = [regex]::Matches($markdown, '(?m)^##\s+(\d+)\.\s+[^\r\n]+')
+    if ($newsHeadings.Count -ne 5) { throw 'News headings must be numbered 1 to 5.' }
+    for ($index = 0; $index -lt 5; $index++) {
+        if ([int]$newsHeadings[$index].Groups[1].Value -ne ($index + 1)) { throw 'News headings are out of order.' }
+    }
     $newsSections = [regex]::Split($markdown, '(?m)^##\s+[^\r\n]+')[1..5]
-    foreach ($section in $newsSections) {
-        if (-not [regex]::IsMatch($section, '\b(CONFIRMED|COMPANY_CLAIM|MEDIA_REPORT|UNCONFIRMED|ANALYSIS)\b')) {
+    for ($index = 0; $index -lt 5; $index++) {
+        $section = $newsSections[$index]
+        if ($null -eq $facts -and -not [regex]::IsMatch($section, '\b(CONFIRMED|COMPANY_CLAIM|MEDIA_REPORT|UNCONFIRMED|ANALYSIS)\b')) {
             throw 'Each news item must include a fact-status label.'
         }
         if (-not [regex]::IsMatch($section, '\]\(https?://[^\s)]+\)')) {
             throw 'Each news item must include a direct source link.'
         }
+        if ($null -ne $facts) {
+            $sourceLine = [regex]::Match($section, '(?m)^来源：[^\r\n]+').Value
+            $sourceCount = [regex]::Matches($sourceLine, '\]\(https?://[^\s)]+\)').Count
+            if ($sourceCount -lt 2 -or $sourceCount -gt 4) { throw 'Each news item must end with 2 to 4 key sources.' }
+            foreach ($source in $facts[$index].sources) {
+                if (-not $sourceLine.Contains("]($source)")) { throw 'A fact source differs from the article sources.' }
+            }
+        }
+    }
+    if ($null -ne $facts) {
+        $expectedTitle = 'AI 与科技每日简报｜' + ([DateTime]::ParseExact($Date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)).ToString('yyyy年M月d日')
+        if (($markdown -split '\r?\n')[0] -cne "**$expectedTitle**") { throw 'The date title does not match the folder.' }
+        if (-not $markdown.Contains('**今天最值得记住的一件事**')) { throw 'The editorial conclusion is missing.' }
+        if ($markdown.Contains('WordPress 发布信息') -or $markdown.Contains('今日重点 5 条')) { throw 'Publishing metadata and extra section labels must stay outside the article.' }
+        $preview = Get-Content -LiteralPath (Join-Path $repoRoot "$Date/preview.html") -Raw -Encoding UTF8
+        if (-not $preview.Contains([string]$metadata.content)) { throw 'The preview differs from the publishing body.' }
     }
     $decodedHtml = [Net.WebUtility]::HtmlDecode([string]$metadata.content)
     foreach ($link in [regex]::Matches($markdown, '\]\((https?://[^\s)]+)\)')) {

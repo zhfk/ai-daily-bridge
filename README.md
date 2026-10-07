@@ -4,7 +4,7 @@
 
 ## 每日文件
 
-- `YYYY-MM-DD/brief.md`：最终中文正文，建议约 1800–2800 中文字符，不含来源 URL 和发布元数据。
+- `YYYY-MM-DD/brief.md`：最终中文正文，保留有效来源链接，建议约 1800–2800 中文字符；字数统计不计来源 URL 和发布元数据。
 - `YYYY-MM-DD/wordpress.json`：同一最终稿的发布元数据及 HTML 正文。
 - `YYYY-MM-DD/images.json`：可选；新闻相关图片或可靠图片来源及署名信息。无合适图片时可省略。
 

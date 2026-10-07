@@ -23,7 +23,7 @@ function Invoke-RepositoryGit {
     if ($LASTEXITCODE -ne 0) {
         throw "Git failed ($($GitArguments[0])): $($gitOutput -join [Environment]::NewLine)"
     }
-    return $gitOutput
+    return @($gitOutput | ForEach-Object { $_.ToString() })
 }
 
 $branch = (Invoke-RepositoryGit @('branch', '--show-current') | Out-String).Trim()

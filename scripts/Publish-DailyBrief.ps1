@@ -47,7 +47,7 @@ if ($SyncOnly) {
 }
 
 if ($Setup) {
-    $publishPaths = @('README.md', 'scripts/Publish-DailyBrief.ps1')
+    $publishPaths = @('README.md', 'DAILY_BRIEF_PROMPT.md', 'scripts/Publish-DailyBrief.ps1')
     $commitMessage = 'docs: configure daily AI brief workflow'
 } else {
     [void][DateTime]::ParseExact($Date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture)

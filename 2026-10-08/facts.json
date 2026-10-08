@@ -1,0 +1,78 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-07",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://openai.com/index/gpt-6-for-everyone/",
+      "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "https://www.macrumors.com/2026/10/07/chatgpt-intelligent-ui/"
+    ],
+    "notes": "官方公告与更新说明已打开，MacRumors 独立报道交叉核查。GPT-6 不是首次发布；此次为 Chat 与 Intelligent UI 更新，分批推出。次日 Free/Go 扩展为计划，未声称全量已开放。性能优势未写成独立测试。正文图片已下载检查，官方演示画面经 MacRumors 展示。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-07",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.anthropic.com/claude-haiku-5-5",
+      "https://www.marketscreener.com/news/anthropic-launches-third-claude-5-5-model-expanding-ai-lineup-before-planned-ipo-ce785ddedd89f722",
+      "https://www.itmedia.co.jp/news/article/2610/08/2000002112/"
+    ],
+    "notes": "官方定价页、Reuters 经 MarketScreener 展示、ITmedia 均实际打开。区分不超过与超过 100k 提示词的价格；平均 75% 节省为厂商工作负载估算，计及分词更新。未把模型评测写成独立验证。图片为发布视觉，不是性能图。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-07",
+    "status": [
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.investing.com/news/stock-market-news/blackstonebacked-airtrunk-to-invest-1-billion-in-japan-data-centre-campus-4935603",
+      "https://airtrunk.com/new-300-mw-tokyo-data-centre/"
+    ],
+    "notes": "追加投资与液冷改造基于实际打开的 Reuters 报道。未找到此次投资完整官网公告，保留媒体报道边界；2020 官方公告仅佐证园区历史规划和云服务背景。300MW+ 是园区规模不是本次新增容量，投资不等于完工。图片为官网 2020 规划效果图，明确历史背景；未写成实拍或当前改造现场。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-06",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.multiplylabs.com/press/series-b-2026",
+      "https://siliconangle.com/2026/10/06/multiply-labs-raises-75m-to-optimize-pharmaceutical-manufacturing-with-robots/"
+    ],
+    "notes": "在 48 小时补充窗口使用美国当地 10/6 公告，并在正文明确日期，不以 10/7 转载日期冒充新事件。官方融资公告与 SiliconANGLE 10/6 报道交叉核查。未承诺患者疗效、售价或无需监管批准；制造效果为公司主张，未采用 74%/100x 为独立已验证事实。图片为融资公告原始图。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-07",
+    "status": [
+      "CONFIRMED",
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://nousresearch.com/",
+      "https://www.marketscreener.com/news/nous-research-inc-announced-that-it-has-received-90-million-in-funding-from-robot-ventures-lp-m-ce785ddedd8df427",
+      "https://portal.nousresearch.com/business"
+    ],
+    "notes": "官网内嵌 10/7 官方动态确认 Series B、参与投资方和移动应用计划。金额和投后估值采用实际打开的 S&P Capital IQ 报道，经 MarketScreener 展示。Hermes Business 产品特点核查官方页面。未将融资当作产品交付、桌面版当天发布或企业效果验证；两张图片来自已核验官方网站，桌面截图仅标为既有产品背景。"
+  }
+]

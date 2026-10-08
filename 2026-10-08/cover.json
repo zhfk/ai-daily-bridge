@@ -1,0 +1,8 @@
+{
+  "file": "cover.png",
+  "news_index": 1,
+  "alt": "聊天回答展开为自行车图解、交互计算器和旅行地图，呈现 GPT-6 Intelligent UI 的界面变化",
+  "caption": "AI 生成的编辑插画：以 GPT-6 与 Intelligent UI 的发布为主题，非官方产品截图或新闻实拍。",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Use case: illustration-story. Asset type: 16:9 wide editorial cover for the 2026-10-08 Chinese AI daily brief, featured image behind a WordPress slider headline. Primary request: illustrate the specific lead story that OpenAI is rolling out GPT-6 with Intelligent UI, turning a conversational answer into usable interactive tools. Scene: a clearly illustrated desktop and phone, on the right half of the composition, with a simple conversation ribbon unfolding into three connected native-style panels: an exploded seven-speed bicycle diagram with selectable parts, a savings calculator with a slider and a clean chart, and a travel map with route markers. Panels are coherent product-like metaphors, not a purported real screenshot. Style: refined editorial 3D illustration, crisp contours, tactile paper and frosted glass, sophisticated ivory, teal, warm amber and dark blue. Composition: true landscape 16:9, visually interesting on the right; left 40% and lower quarter are calm deep teal-blue with subtle texture and ample uninterrupted space for a white Chinese headline added by the site. Keep the background fully opaque and colored, never transparent or solid black. No people, no robots, no generic glowing AI brain or unrelated chip racks. No text, no letters, no numbers, no brands or logos, no watermarks. This is an editorial conceptual illustration, not an official OpenAI product photo."
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "news_index": 1,
+    "caption": "GPT-6 Intelligent UI 官方演示画面，MacRumors 报道所用图片。",
+    "source_page_url": "https://www.macrumors.com/2026/10/07/chatgpt-intelligent-ui/",
+    "credit": "OpenAI，经 MacRumors 展示",
+    "image_url": "https://images.macrumors.com/t/IwxdmqIlkFP4D7v4Fph6mIun5Hc%3D/400x0/article-new/2026/10/gpt-6-intelligent-ui.jpg?lossy=",
+    "fit": "contain"
+  },
+  {
+    "news_index": 2,
+    "caption": "Claude Haiku 5.5 发布视觉，ITmedia 报道所用图片；非独立性能测试图。",
+    "source_page_url": "https://www.itmedia.co.jp/news/article/2610/08/2000002112/",
+    "credit": "Anthropic，经 ITmedia 展示",
+    "image_url": "https://www.itmedia.co.jp/news/article/ogp/2610/08/2000002112/10008784/2048",
+    "fit": "contain"
+  },
+  {
+    "news_index": 3,
+    "caption": "TOK1 官方规划效果图，来自 2020 年项目公告，仅作园区背景素材，非此次液冷改造现场。",
+    "source_page_url": "https://airtrunk.com/new-300-mw-tokyo-data-centre/",
+    "credit": "AirTrunk，2020 年官方规划效果图",
+    "image_url": "https://airtrunk.com/wp-content/uploads/2020/09/AirTrunk-TOK1-scaled.jpg",
+    "fit": "contain"
+  },
+  {
+    "news_index": 4,
+    "caption": "Multiply Labs 本轮融资公告图，包含机器人制造集群和投资方标识。",
+    "source_page_url": "https://www.multiplylabs.com/press/series-b-2026",
+    "credit": "Multiply Labs",
+    "image_url": "https://www.multiplylabs.com/static/img/series-b-2026-graphic-1920w.webp",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "caption": "Hermes Business 官方产品宣传视觉。",
+    "source_page_url": "https://portal.nousresearch.com/business",
+    "credit": "Nous Research",
+    "image_url": "https://web-assets.nousresearch.com/portal/9229964b43b391ceab9974029f56885d94546d3c/assets/hermes-landing/teams/business-card.png",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "caption": "Hermes Desktop 官方界面截图，仅作既有产品背景素材，不表示今日另有桌面版发布。",
+    "source_page_url": "https://nousresearch.com/",
+    "credit": "Nous Research，官方产品背景素材",
+    "image_url": "https://web-assets.nousresearch.com/portal/9229964b43b391ceab9974029f56885d94546d3c/assets/nous-web/mobile-home/product-desktop.webp",
+    "fit": "contain"
+  }
+]

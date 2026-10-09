@@ -1,0 +1,8 @@
+{
+  "news_index": 1,
+  "file": "cover.png",
+  "alt": "AI 协助保护电网与供水设施的概念编辑插画",
+  "caption": "AI 生成的编辑插画：以 Anthropic Cyber Mission 为主题，表现漏洞发现与修复连接电网、供水设施；非新闻实拍或官方产品照片。",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: 16:9 wide WordPress featured-image editorial illustration for the October 9, 2026 AI daily briefing. Topic: Anthropic's October 8 Cyber Mission uses frontier AI to help defend critical infrastructure and find and patch vulnerabilities in open-source software. Create a sophisticated tangible isometric editorial scene, not a news photograph: on the right two thirds, an electrical substation with transformers and transmission lines beside a water treatment plant with tanks and connecting pipes, linked to a compact open-source software inspection station represented by layered translucent code-like panels without readable glyphs. A precise warm amber protective light travels from the software station along the infrastructure links, and a small visible break in one connection is being repaired. Communicate vulnerability discovery leading to practical repair, keeping electricity and water running. Restrained editorial 3D illustration with detailed industrial components, muted teal and warm amber light, opaque deep blue-teal background with depth and a subtle warm horizon. Keep the left third and lower-left area calm and uncluttered with medium-dark colored space for a white headline overlay, do not render any text. Clearly conceptual and illustrative, no official brand logos, no Claude or Anthropic logo, no shields, no locks, no robots, no human faces, no random circuit-board background, no watermark, no text, no numbers, no transparent background. Landscape aspect ratio exactly 16:9."
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.anthropic.com/news/anthropic-cyber-mission",
+      "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source",
+      "https://www.axios.com/2026/10/08/anthropic-critical-infrastructure-cybersecurity"
+    ],
+    "notes": "官方 Cyber Mission 与 OSS Scanner 说明实际打开，Axios 交叉核查推出事实。29,000 为公司披露候选漏洞，6,000 为人工审查分流量，不等于全部确认；报告无需人工复核，含错误可能。入选项目与申请制、合作伙伴模式明确；未将两年防御预测、90%期待写作已验证效果。官方 hero 图含历史档案，并非基础设施实拍。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://gf.com/news-and-events/news/globalfoundries-reaches-agreement-to-establish-us-based-supply-of-silicon-interposers-for-advanced-ai-packaging/",
+      "https://ca.marketscreener.com/news/globalfoundries-to-make-key-ai-chip-component-for-tsmc-in-2-billion-deal-ce785ddfd88ef427"
+    ],
+    "notes": "实际打开格芯官网公告及 Reuters 经 MarketScreener 展示的完整报道；20亿美元、初始5年、2028上半年量产爬坡一致。未将协议金额推算为GPU数量或新增当前容量。CoWoS 硅中介层及嵌入深沟槽电容依据官网。图片从 GF 官网对应此次协议卡片实际取得，为官方封装示意并非实物，HTTP200且目视核查。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-07",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://github.com/openai/math/blob/main/history.md",
+      "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "https://retractionwatch.com/2026/10/08/openai-withdraws-preprints-722-manuscripts-unsolved-math-problems/"
+    ],
+    "notes": "补充近48小时进展：官方 history 明确10月7日撤回3稿、修订14稿，另13篇仅更新引用。Retraction Watch10月8日采访报道，不把报道日冒充撤回日。原批次发布10月6日仅作背景。300/719约42%是公司 formalization 进度，不代表其余错误或全批接受。未核实合适同事件新闻图片，故无图，保留真实内容。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://api.sttinfo.fi/tiedote/72390663/lupa-ja-valvontavirasto-kehottaa-tuike-finland-oyta-keskeyttamaan-muhoksen-ja-kajaanin-datakeskushankkeiden-valmistelutoimet?publisherId=69821631",
+      "https://yle.fi/a/74-20250446"
+    ],
+    "notes": "新进展为Yle10月8日报道的谷歌遵从回应与初步调查状态；明确监管通知实际10月6日，投资计划9月，不称今天新令或新投资。官方要求立即、最晚10月23日停止改变环境的准备工程，低影响规划/测量等排除，说明须10月14日提交；未混同为法院违法判决。10月8日警方仅初步判断是否进一步侦查。配图来源Yle，caption原文File photo，署名Rami Moilanen，明确资料图。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://news.adobe.com/news/2026/10/adobe-and-heathrow-airport-partner",
+      "https://thenextweb.com/news/heathrow-adobe-agentic-ai-website"
+    ],
+    "notes": "实际打开Adobe合作公告、TNW报道。产品组合/年网站访问量为公告披露；未声称新网站已全量上线，未采用1/4旅客调研或4.4倍转化为独立验证。TNW说明未给上线日与金额。两张PNG为同一官方公告下载链接，HTTP200图像及画面均核查，概念网站画面不能充当上线证据。"
+  }
+]

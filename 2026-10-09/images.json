@@ -1,0 +1,42 @@
+[
+  {
+    "news_index": 1,
+    "caption": "Anthropic Cyber Mission 官方发布视觉，含历史档案画面；并非当天基础设施现场",
+    "source_page_url": "https://www.anthropic.com/news/anthropic-cyber-mission",
+    "credit": "Anthropic",
+    "image_url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/e6614df689675126bb32ceb5cfcaaae016050c36-2000x1125.jpg",
+    "fit": "contain"
+  },
+  {
+    "news_index": 2,
+    "caption": "GlobalFoundries 此次协议在官网使用的芯片封装示意素材，非具体芯片实物或量产现场",
+    "source_page_url": "https://gf.com/",
+    "credit": "GlobalFoundries",
+    "image_url": "https://assets.gf.com/asset/328833518282/image_67ck9gq2992hf4eml5fp0ftk7j?content-disposition=inline",
+    "fit": "contain"
+  },
+  {
+    "news_index": 4,
+    "caption": "谷歌 Muhos 数据中心拟建场地资料照片，并非停工当天现场",
+    "source_page_url": "https://yle.fi/a/74-20250446",
+    "credit": "Rami Moilanen / Yle",
+    "image_url": "https://img.img-cdn.yle.fi/crop_extract,w_5278,h_2970,x_0,y_0/crop_fill,w_767,h_431,ar_16:9,dpr_1/f_auto/39-17047376aa14e9f82f6d/1788956793",
+    "fit": "cover"
+  },
+  {
+    "news_index": 5,
+    "caption": "Adobe 与 Heathrow 合作公告视觉",
+    "source_page_url": "https://news.adobe.com/news/2026/10/adobe-and-heathrow-airport-partner",
+    "credit": "Adobe / Heathrow",
+    "image_url": "https://news.adobe.com/news/2026/10/media_1353a5ac4b14cba63386414fbd50232e59d27da06.png?format=png&optimize=medium&width=750",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "caption": "官方展示的网站与 AI 可见性概念画面，并非已全量交付证明",
+    "source_page_url": "https://news.adobe.com/news/2026/10/adobe-and-heathrow-airport-partner",
+    "credit": "Adobe / Heathrow",
+    "image_url": "https://news.adobe.com/news/2026/10/media_1c579d9f176de4eb42d319d1fd1a8a2196fa73511.png?format=png&optimize=medium&width=750",
+    "fit": "contain"
+  }
+]

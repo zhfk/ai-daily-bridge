@@ -1,0 +1,74 @@
+[
+  {
+    "news_index": 1,
+    "caption": "Gemini at Work 2026 官方活动视觉",
+    "source_page_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+    "credit": "Google Cloud",
+    "image_url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/image_3.max-2100x2100_0CYZWqn.jpg",
+    "fit": "contain"
+  },
+  {
+    "news_index": 1,
+    "caption": "Gemini 工作 Agent 官方界面展示；功能开放范围需按租户核验",
+    "source_page_url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+    "credit": "Google Cloud",
+    "image_url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/Gemini.max-2000x2000.png",
+    "fit": "contain"
+  },
+  {
+    "news_index": 2,
+    "caption": "Firmus 提供的工作人员与设施环境背景素材；非撤回 IPO 当日现场",
+    "source_page_url": "https://www.sbs.com.au/news/podcast-episode/firmus-pulls-its-7-2-billion-ipo/g352zzxpd",
+    "credit": "SBS / AAP / SUPPLIED/PR IMAGE",
+    "image_url": "https://assets.sbs.com.au/dims4/default/6980c4a/2147483647/strip/true/crop/1687x949%2B56%2B0/resize/1280x720%21/quality/90/?imwidth=1280&url=https%3A%2F%2Fsbs-au-brightspot.s3.ap-southeast-2.amazonaws.com%2F92%2Ff9%2Ff11ebdbf4a45b9af25c2a367186a%2Ffirmuss-main-technology-is-hypercube-a-liquid-cooled-block-that-houses-ai-racks-aap.jpg",
+    "fit": "cover"
+  },
+  {
+    "news_index": 3,
+    "caption": "逐步裁剪与批量裁剪的缓存机制比较，Asana 官方研究示意",
+    "source_page_url": "https://asana.com/inside-asana/cut-browsers-agent-cost",
+    "credit": "Asana / Frank Hidalgo",
+    "image_url": "https://assets.asana.biz/transform/979d8a06-eff2-471a-8eb9-8ca6a30be6c5/figure-2-per-step-vs-batch-pruning?io=transform:fill,width:2560&format=webp",
+    "fit": "contain"
+  },
+  {
+    "news_index": 3,
+    "caption": "Asana 公司测试的成本与耗时均值；每配置三次，原始基线含触及上限的运行",
+    "source_page_url": "https://asana.com/inside-asana/cut-browsers-agent-cost",
+    "credit": "Asana / Frank Hidalgo",
+    "image_url": "https://assets.asana.biz/transform/e708dc5b-2dd6-4826-86bd-d5622af61937/figure-4-cost-and-run-time?io=transform:fill,width:2560&format=webp",
+    "fit": "contain"
+  },
+  {
+    "news_index": 4,
+    "caption": "Arena B 轮融资公告视觉",
+    "source_page_url": "https://arena.ai/blog/series-b",
+    "credit": "Arena",
+    "image_url": "https://cdn.sanity.io/images/ybjf12mv/migration/7cab786dfd9d5c9f24fd60d177ab3fe92b4780a3-2200x1238.png?rect=0,42,2200,1155&w=1200&h=630&fit=crop",
+    "fit": "contain"
+  },
+  {
+    "news_index": 4,
+    "caption": "Arena Alignment Index 发布视觉",
+    "source_page_url": "https://arena.ai/blog/ai-alignment-index",
+    "credit": "Arena",
+    "image_url": "https://arena.ai/cms/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fybjf12mv%2Fmigration%2Fe0debe22fb7467b3503c0302399647a6cdf5e11f-2200x1238.jpg&w=3840&q=90",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "caption": "全天紫外地图，约三分之一属于预测，非新望远镜观测",
+    "source_page_url": "https://www.anthropic.com/research/the-missing-map-of-the-sky",
+    "credit": "Brice Ménard / Anthropic",
+    "image_url": "https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F895ee62706be70c96f9f078f451ebd238bdffad1-2400x1200.webp&w=3840&q=75",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "caption": "历史观测到合成紫外地图的处理步骤，包含估计区域",
+    "source_page_url": "https://www.anthropic.com/research/the-missing-map-of-the-sky",
+    "credit": "Brice Ménard / Anthropic；数据：NASA GALEX、Swift-UVOT，KASI FIMS/SPEAR，ESRO TD-1，ESA Planck、Gaia",
+    "image_url": "https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fffffecf57d3c55d3d4890d503366964cfcb7b524-2000x1202.png&w=3840&q=75",
+    "fit": "contain"
+  }
+]

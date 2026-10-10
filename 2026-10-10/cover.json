@@ -1,0 +1,8 @@
+{
+  "news_index": 1,
+  "file": "cover.png",
+  "alt": "统一企业 Agent 连接邮件、文档与业务系统并经过人工授权的概念插画",
+  "caption": "AI 生成的编辑插画：以 Google Gemini 工作 Agent 公告为主题，表现统一任务入口、跨系统协作和人工授权；非新闻实拍或官方产品照片。",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Create a premium editorial illustration for an AI and technology daily briefing, 16:9 landscape, opaque full-color background, theme: Google's newly announced universal enterprise work agent connecting mail, documents, spreadsheets, code and business systems under human permission controls. Do not reproduce a product screenshot or imply an official Google image. A sophisticated architectural workspace in perspective: on the right two-thirds, five translucent glass work trays with recognizable but completely text-free icons of envelope, document sheets, spreadsheet grid, code brackets and a calendar are linked to a single luminous orchestration hub. A narrow golden permission gateway with a lock/checkmark between the hub and business actions, and a small human hand choosing an approval control, communicates governed execution. Warm ivory and pale slate-blue office surfaces, restrained green, blue and amber highlights, beautiful tactile glass and brushed metal, realistic soft daylight, magazine-quality 3D editorial art, crisp meaningful objects. Keep the left third spacious, softly colored and relatively uncluttered for a headline overlay. No black background, no letters, numbers, words, logos, branding, watermarks, humanoid robots, cyberpunk city or generic circuit-board background. This is an explicitly AI-generated conceptual editorial illustration, not a news photograph."
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/",
+      "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+    ],
+    "notes": "实际打开 Google 主站与 Cloud 同次公告，实际发布10月8日，作为48小时补充。公告事实可确认，持续执行、系统整合及成本控制描述为公司口径，未宣称所有渠道或全部租户已GA。Cloud称当前模型支持Gemini与Claude，其他私有/开放模型为后续方向。两图来自同一公告，HTTP200并目视核查。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-09",
+    "status": [
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://uk.marketscreener.com/news/australian-nvidia-backed-ai-data-centre-operator-firmus-shelves-ipo-ce785ddfdc8df725",
+      "https://www.abc.net.au/news/2026-10-09/asx-markets-business-live-news-9-october-2026/107246104",
+      "https://www.sbs.com.au/news/podcast-episode/firmus-pulls-its-7-2-billion-ipo/g352zzxpd"
+    ],
+    "notes": "实际打开 Reuters 完整报道、ABC独立报道与SBS同日节目说明，撤回IPO事件10月9日。50亿美元是原拟筹资规模，不是估值；SBS澳元金额未与美元混淆。未采纳匿名来源的Nasdaq具体目标或推断破产/停建。公司市场波动解释与受访者定价担忧分开。SBS图片虽原caption描述HyperCube，实际画面为工作人员背影与设施环境，因此按实际画面标注背景供图，不声称当天现场。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://openai.com/index/asana-browser-agent/",
+      "https://asana.com/inside-asana/cut-browsers-agent-cost"
+    ],
+    "notes": "OpenAI案例10月9日发布，Asana原方法文章10月8日，正文明确两者日期。144次测试，四模型、六策略、两字符预算、每条件三次；任务32本书各六字段。76倍/5倍相对原Model B生产工作流，不能当作纯模型替换收益；Sol自身较大预算优化1.97至0.47美元约四倍，89%缓存为公司测试。费用为模型估算、不含完整人工总成本；基线含被封顶的未完成运行，三次样本不支持细微差异或跨业务保证。图片从Asana原页面取实际URL，非自行重建图表。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://arena.ai/blog/series-b",
+      "https://arena.ai/blog/ai-alignment-index",
+      "https://techcrunch.com/2026/10/08/popular-ai-leaderboard-arena-nearly-doubles-valuation-to-3-1b-valuation-in-10-months/"
+    ],
+    "notes": "融资和Alignment Index首次公告10月8日，融资页10月9日更新不冒充新融资。两亿美元、31亿美元估值由官方及TechCrunch交叉；TechCrunch只用于这两项事实，其他方法依据Arena官方。27模型/9万会话为Arena披露样本；模型评审rubric经人工复查迭代，三信号仅覆盖部分安全与对齐，不是全场景认证。忽略来源页面夹带的零宽字符内容。两张视觉来自本次官方公告，HTTP200并目视核查。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-08",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.anthropic.com/research/the-missing-map-of-the-sky",
+      "https://menard.pha.jhu.edu/uvmap/"
+    ],
+    "notes": "Anthropic公开日期10月8日；作者称项目今夏开展，不把成果披露写成新观测。作者同时任JHU与Anthropic职位，不称独立测试。约三分之一为预测，图层标记观测/预测并提供不确定性。研究者地图网站在此前web阅读中打开并核查说明，本次直接HTTP下载返回403；保留真实原研究链接，未用该受限请求虚构新信息。未将教学完整图当作新科学发现或同行复现。两图来自文章原img地址，HTTP200并目视核查，步骤图原署名保留。"
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-12",
+    "status": [
+      "CONFIRMED",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.gov.uk/government/news/britain-steps-up-national-defences-against-growing-ai-risks",
+      "https://www.gov.uk/government/speeches/building-a-safer-more-secure-britain-in-the-age-of-ai"
+    ],
+    "notes": "正式公告与演讲均为10月12日，已实际打开完整官方文件。超过1000潜在漏洞来自政府对两个试点的自述，未称独立审计或给所有项目推广。严重事故和near miss报告仍属研究与立法讨论，不是已经生效的强制义务。人类控制、权限/日志/应急演练的企业影响为编辑判断，不把关于超级智能的政治表述当作科学结论。肖像从同次演讲官方页取得，HTTP200并目视核查，明确非当天现场。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-11",
+    "status": [
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.boursorama.com/bourse/actualites/amazon-en-pourparlers-pour-racheter-la-start-up-decart-pour-7-mds-wsj-d9e828bc3abc41fdcac1d51bafa6dc8d",
+      "https://decart.ai/optimization-engine",
+      "https://aws.amazon.com/ai/machine-learning/trainium/customers/",
+      "https://aws.amazon.com/ai/machine-learning/trainium/"
+    ],
+    "notes": "WSJ于10月11日报谈判，路透社法语完整稿12日00:04巴黎时间转载报道（11日22:04UTC），在出稿24小时内。实际打开路透全文、Decart DOS、AWS客户页与Trainium产品页。70亿美元为潜在交易金额，非已完成收购；公司当时未回复。Reuters转述同一WSJ消息不作独立确认。DOS跨硬件/内核调优与AWS实时视频合作为既有公司材料，未作为当日发布。未引用公司宣传倍数作可复现性能事实。Decart官网AVIF虽HTTP下载可读，实际浏览器未加载，因此移出交付稿，替换为实际Trainium产品页提供的官方芯片与机架背景素材；真实原图HTTP200并目视核查，最终经浏览器复查加载。未把背景图称作新交易现场或声称特定机架型号。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-12",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://sakana.ai/mass/",
+      "https://pub.sakana.ai/mass/",
+      "https://arxiv.org/abs/2610.12176",
+      "https://github.com/SakanaAI/mass"
+    ],
+    "notes": "Sakana官方介绍日期10月12日；arXiv v1明确10月8日15:44:02UTC，正文同时交代，不把今天介绍写成今日新论文。实际打开官方简讯、研究全文、arXiv记录及代码README。27B模型、两轮、四研究基准1.2至1.6倍均为作者实验，非独立复现。Terminal-Bench2.0 0.96及SWE-bench Verified0.94为得分/输出token比值，不能当作绝对正确率或整体成本比。代码为研究实现，不承诺逐项等同原运行。外层训练更新权重；内层调整工作流，不能把权重更新混同纯提示词搜索。图表来自原文，完整SVG经浏览器加载及目视核查；作者结果不当全业务收益。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-12",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://finance.yahoo.com/technology/ai/articles/lumentum-astera-labs-corning-demonstrate-100000083.html",
+      "https://www.asteralabs.com/solutions/ai-servers-and-clustering/disaggregated-scale-up-architecture/"
+    ],
+    "notes": "联合公司新闻稿10月12日06:00EDT（10:00UTC），实际通过公共HTTP读取Yahoo分发的Business Wire完整公司稿；原wire网页超时，未以搜索摘要替代全文。原文明确多个32Gb/s NRZ光通道与PCIe5无误码概念验证，非PCIe7联合演示。12至15日展会拟演示，出稿时未声称现场已完成或批量交付。性能/能效目标为公司口径，未有独立测试或采购可用保证。Astera现有架构页仅用作连接约束背景和两张官方产品素材，图中50米和PCIe7等不是该次联合概念验证规格。图片HTTP200并目视核查。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-12",
+    "status": [
+      "MEDIA_REPORT",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://ph.investing.com/news/stock-market-news/deepseek-to-lead-funding-round-for-robotics-ai-startup-winverse-at-400-mln--report-93CH-2623984",
+      "https://www.deepseek.com/news/deepseek-v4-1-flash/",
+      "https://github.com/deepseek-ai"
+    ],
+    "notes": "融资消息10月12日，实际打开Investing.com完整文章，明确其引述Bloomberg知情人士。Bloomberg原始网页访问受限，未引用其未读全文，也未宣称独立交叉确认。种子轮数千万美元与投后估值4亿美元分开；交易未敲定，估值/参与方可能变化。省略DeepSeek自身融资、IPO及旧投资的额外传闻。Winverse无可核验产品现场图片，因此使用DeepSeek官方机构标识并明确背景性质。DeepSeek模型背景依据9月10日官方V4.1 Flash公告，仅取既有视觉理解与开放生态事实，不把旧发布当今天新闻或认为已获得机器人控制能力。机构标识URL从已打开官方GitHub组织页和公共API取得，HTTP200并目视核查。"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "news_index": 1,
+  "file": "cover.png",
+  "alt": "以人工暂停控制、权限网关和英国公共服务设施呈现 AI 防护措施",
+  "caption": "AI 生成的编辑插画：英国扩展 AI 网络防护并筹备自主 Agent 事故响应，非新闻现场照片。",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Create a polished 16:9 horizontal editorial illustration for the lead story of a Chinese AI and technology daily briefing: On 12 October 2026 the UK announced expansion of AI-assisted cyber defence pilots and preparation for autonomous-agent incidents, with human control and essential-service resilience at the center. Style: sophisticated editorial 3D illustration, clearly an illustration rather than a news photograph. Concrete scene: on the right, a human operator's hand rests beside a physical emergency pause switch on a transparent control console; several structured task paths pass through a secure permission gateway before reaching a compact hospital, an electricity substation, and civic-service server racks in the midground. Use abstract non-text geometric status indicators and a restrained shield motif, no humanoid robots. A small, subtle London civic silhouette may provide context without fake real event imagery. Full opaque colored background with luminous blue and teal systems and warm amber safeguards, bright enough to avoid an empty black slider background. Preserve a calm uncluttered dark-blue left third for white headline overlay; fill it with subtle continuous color and atmosphere rather than solid black. Precise materials and controlled lighting, refined publication-quality composition. No words, numbers, logos, labels, flags, watermark or claims of technological capabilities; no dramatic cyberwar or disaster imagery."
+}

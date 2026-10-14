@@ -1,0 +1,76 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-14",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/"
+    ],
+    "notes": "实际打开Google主公告与开发者公告；原网页JSON-LD发布日期2026-10-13T16:00:00UTC，属最新24小时。公开API为付费层，应用/AI Mode限Pro或Ultra，Antigravity限Ultra，Fairwind研究访问仍申请。2/10美元为介绍期每百万输入/输出token价格，11月30日结束后4/20美元，未当永久价格或宣称较此前下降。公司工程收益和机器人试验未写成独立证实。未把页面1M unified input-output误写成各自1M；因未读取含完整条件的动态长输出文档，正文不列具体窗口或调用参数。实际原图从og:image与视频缩略图地址取得，HTTP200并目视核查；第二图Content-Type为octet-stream但内容确为WebP，交付前浏览器加载复查。 正文和event_date已将发布时间换算为北京时间14日00:00，原来源日期13日不混为两次发布。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-14",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.investor.asml.com/news-releases/news-release-details/asml-reports-eu11.7-billion-total-net-sales-and-eu5.0-billion-net-income-q3-2026",
+      "https://live.euronext.com/en/financial-news/asml-says-ai-demand-will-exceed-chip-tool-capacity-through-2028",
+      "https://www.asml.com/en/en/products/euv-lithography-systems/twinscan-nxe-3800e"
+    ],
+    "notes": "实际打开ASML14日官方财报全文和同日Reuters/Euronext全文，US GAAP表数字单位为百万欧元，11662=116.62亿欧元，4960=49.60亿欧元。季度表为公司披露的未经审计数据；年度营收与2027/2028供给判断为公司前瞻，不是完成交付事实。指引提高下限，未宣称上限也提高。有关30%扩产脚注针对低NA EUV和浸没式DUV，未推广到全部产品线。Reuters客户2029/2030兴趣不是已锁定全部订单或收益，不提供买卖建议。产品背景页实际打开并HTTP读取，NXE3800E原URL保留查询参数，图片HTTP200目视核查，非当日新增产品。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-13",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform/",
+      "https://github.com/dsx-ai-factory/run-ai",
+      "https://www.nvidia.com/en-us/software/run-ai/"
+    ],
+    "notes": "实际打开13日NVIDIA技术博客完整正文（非仅其自动生成摘要）、主仓库README和官方产品页。网页JSON-LD发布13日14:19:40UTC，更新21:46:33UTC，均在24小时内。KAI Scheduler此前已开源，本次完整平台增量与各组件分开。主仓库Apache2.0不代表所有第三方或skills资产单一许可；NGC Community需接受适用NVIDIA条款，无付费订阅且不包含企业支持；未混同商业托管方案。产品页泛化数据通道背景图未采纳，改用实际平台界面和既有混合负载测试图，均HTTP200并目视核查。混合负载与Llama单一负载基线不同，图中吞吐不作为同模型或开源发行版独立复现结果，正文未给倍数保证。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-13",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.anthropic.com/research/self-replicating-ai",
+      "https://www.investing.com/news/economy-news/ai-models-may-soon-selfreplicate-without-access-to-data-centers-anthropic-warns-4945449"
+    ],
+    "notes": "原研究JSON-LD发布12日19:30:00UTC，距出稿约40小时，明确48小时补充；Reuters13日采访为新增专家观点而非研究当日首次发布。实际打开研究全文、实验设置和Reuters完整版。15台约55美元电视盒子、Gemma4-26B-A4B、0.39token/s为作者实测，非端到端实网感染。GLM5.2运行在单独推理服务并驱动部署Llama3.1-8B，简化认证条件，不把大模型编排能力当小模型已经自主复制。数月/年底预测来自一般能力代理指标外推，不当确认事件或概率。专家质疑和担忧均为Reuters采访，非独立复现。流程图来自作者真实CDN地址，HTTP200并目视核查；未获取或复用无关AI机器人图片。 正文和event_date按北京时间13日03:30填写，原来源标记美国/UTC日期12日，明确同一次研究披露。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-13",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.americanexpress.com/en-us/newsroom/articles/innovation/intent-intelligence-framework-agentic-commerce.html",
+      "https://americanexpress.io/intent-intelligence-building-trust-in-agentic-commerce/"
+    ],
+    "notes": "13日官方技术文章实际打开全文；官方发布页直接HTTP200为Javascript页面壳，已核查canonical、标题、publishDate元数据10-13-2026以及imagePath，仅用于日期、框架公开标题和发布视觉的验证，不虚称读取动态正文。技术内容来自完整American Express Technology文章。Proof of Intent Token与Intent ID作用、意图取消更新和摘要隐私字段有原文证据。实际官方图示写明功能under development且subject to change，未宣称全面GA、行业通用标准、零错误支付或所有交易已覆盖。两个图片URL分别由发布页imagePath与技术文章img相对路径实际取得，HTTP200并目视核查；字段为官方示例，不含本地用户数据。未用TechCrunch25词限额页面派生技术细节。"
+  }
+]

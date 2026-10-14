@@ -1,0 +1,66 @@
+[
+  {
+    "news_index": 1,
+    "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-4-argon__blog-header__2784x1566.width-1300.png",
+    "source_page_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    "caption": "Gemini 4 Argon 本次官方发布视觉",
+    "credit": "Google",
+    "fit": "contain"
+  },
+  {
+    "news_index": 1,
+    "image_url": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/g4-argon_robotics_thumb.width-1000.format-webp.webp",
+    "source_page_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    "caption": "Google机器人示范视频缩略图，效果为公司实验，非独立复现",
+    "credit": "Google / Apptronik",
+    "fit": "contain"
+  },
+  {
+    "news_index": 2,
+    "image_url": "https://media.asml.com/asmlnetherlaaea-asmlcom-prd-5369/media/project/asmlcom/asmlcom/asml/images/products/euv-lithography-systems/nxe3800e_closed_left-cropped.png?h=1080&iar=0&w=1920",
+    "source_page_url": "https://www.asml.com/en/en/products/euv-lithography-systems/twinscan-nxe-3800e",
+    "caption": "ASML既有TWINSCAN NXE:3800E官方产品背景素材，非财报现场或今日新增设备",
+    "credit": "ASML",
+    "fit": "cover"
+  },
+  {
+    "news_index": 3,
+    "image_url": "https://www.nvidia.com/content/nvidiaGDC/us/en_US/software/run-ai/_jcr_content/root/responsivegrid/nv_container_1738623837/nv_image.coreimg.jpeg/1791902110794/run-ai-ui-1920x1455.jpeg",
+    "source_page_url": "https://www.nvidia.com/en-us/software/run-ai/",
+    "caption": "NVIDIA Run:ai官方平台界面背景，非本报集群测试",
+    "credit": "NVIDIA",
+    "fit": "contain"
+  },
+  {
+    "news_index": 3,
+    "image_url": "https://www.nvidia.com/content/nvidiaGDC/us/en_US/software/run-ai/_jcr_content/root/responsivegrid/nv_container_2082460/nv_tabs/item_1739970119731/nv_container_copy/nv_image.coreimg.jpeg/1791902113493/gpu-fractioning-chart-ari.jpeg",
+    "source_page_url": "https://www.nvidia.com/en-us/software/run-ai/",
+    "caption": "NVIDIA产品页既有混合负载吞吐图，公司口径，不保证开源版本复现同样收益",
+    "credit": "NVIDIA",
+    "fit": "contain"
+  },
+  {
+    "news_index": 4,
+    "image_url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/25459a064b25f10689f20e258fb4f1f0291ea083-2360x860.png",
+    "source_page_url": "https://www.anthropic.com/research/self-replicating-ai",
+    "caption": "Anthropic作者复制流程图，研究重点为推理环境搭建，非实网传播记录",
+    "credit": "Anthropic / William Zhou, Daniel Freeman",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "image_url": "https://www.americanexpress.com/content/dam/amex/en-us/newsroom/images/technology-innovation/IntentIntelligencePRImage.jpg",
+    "source_page_url": "https://www.americanexpress.com/en-us/newsroom/articles/innovation/intent-intelligence-framework-agentic-commerce.html",
+    "caption": "American Express官方购买意图确认流程示意；图示注明功能仍在开发且可能变化",
+    "credit": "American Express",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "image_url": "https://americanexpress.io/_post_assets/intent-intelligence-building-trust-in-agentic-commerce/img/sampledata3.jpg",
+    "source_page_url": "https://americanexpress.io/intent-intelligence-building-trust-in-agentic-commerce/",
+    "caption": "American Express购买条件字段示例，说明价格、时间和关联条件",
+    "credit": "American Express / Inderpreet Hundal, Gianna Rotondo",
+    "fit": "contain"
+  }
+]

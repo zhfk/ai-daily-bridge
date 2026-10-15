@@ -1,0 +1,8 @@
+{
+  "news_index": 1,
+  "file": "cover.png",
+  "alt": "半导体洁净室中晶圆传送与先进芯片封装产线的编辑插画",
+  "caption": "AI 生成的编辑插画：台积电先进制程把AI算力需求转化为实际交付与收入；非台积电官方产品图或新闻实拍。",
+  "generation_tool": "built-in image_gen",
+  "prompt": "Create a polished editorial illustration for the homepage hero of a Chinese AI technology daily on October 15, 2026. Lead story: TSMC's quarterly results show advanced semiconductor fabrication turning AI demand into substantial real shipments and revenue; 2nm wafer production is ramping, and manufacturing capacity and delivery matter alongside software model capability. Opaque 16:9 landscape composition. On the right two thirds, show a precise, believable semiconductor cleanroom wafer-handling module: circular iridescent silicon wafer with etched chip grids held by a mechanical wafer transfer arm, several wafer carriers and layered advanced chip packages progressing along a clean production line, with the geometry of a fabrication facility in the distance. Strong crafted editorial 3D illustration, restrained blue-gray, silver, warm amber highlights, tangible material detail, calm professional technology journalism. The left third is quiet deep blue-gray negative space with a subtle gradient suitable for white title overlay; keep it fully opaque and visibly designed, not blank black. No lettering, numbers, captions, logos, watermarks, financial charts, humanoid robots, generic glowing brain, floating icons or random cyberpunk decoration. This is an editorial concept illustration, not a real news photograph or an official TSMC product image."
+}

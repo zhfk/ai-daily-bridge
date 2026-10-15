@@ -1,0 +1,78 @@
+[
+  {
+    "news_index": 1,
+    "event_date": "2026-10-15",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/526b65af7305df2dde6b9ece6812b1fdf1e49f9b/3Q26%20EarningsRelease.pdf",
+      "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/f83780000ddc0c3b48e57a87eab6814c4ab35058/3Q26%20ManagementReport.pdf",
+      "https://focustaiwan.tw/business/202610150009"
+    ],
+    "notes": "实际打开并核对15日官方财报PDF、季度管理报告全文及中央社同日采访问答报道。财报按十亿新台币，1494.24=1.49424万亿，763.06=7630.6亿；美元营收46.72十亿美元，与两份官方文件及中央社一致，未采用聚合条目46.36亿美元换算差异。68%为HPC占净营收，8%为2nm占晶圆营收，不混同分母或把HPC全部视为AI。初期N2爬坡导致毛利率下降为管理层解释；Q4指引为预测，不当作已实现营收。直接官方图片403，采用中央社同日文章的魏哲家七月资料照，HTTP200并目视核查，非15日现场；同文股票牌装饰资料图未采用。来源网页日期与法说会均15日，Asia/Shanghai同Asia/Taipei。 实际桌面1776px与手机390px预览通过：五个H2、无H1，五个图片组全部加载，桌面缩略图360×288、三列保留空列，手机自然折行，无横向溢出；对照参考图核查标题、段落、分隔线与编辑结尾。"
+  },
+  {
+    "news_index": 2,
+    "event_date": "2026-10-14",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "MEDIA_REPORT",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.iowaattorneygeneral.gov/newsroom/attorney-general-brenna-bird-announces-lawsuit-against-openai-for-deceiving-iowa-parents-and-iowans",
+      "https://arkansasag.gov/news-release/attorney-general-griffin-sues-openai-for-misleading-arkansans-over-safety-of-chatgpt/",
+      "https://openai.com/index/introducing-parental-controls/",
+      "https://www.axios.com/2026/10/15/ftc-openai-anthropic-ai-safety-investigation"
+    ],
+    "notes": "实际打开Iowa和Arkansas14日政府公告及Iowa原始诉状，确认各州分别起诉；仅确认提出的诉讼与请求，未把指控当法院认定。Iowa列8州，Arkansas列出其他州，两者计数不一致，故不写确定总数。事件日期按美国当地14日公告，无精确记者会时刻，未将网页午夜JSON-LD当发生时间。Axios15日09:00UTC为最新24小时补充报道；仅用一句话概述FTC民事调查要求，标为MEDIA_REPORT，未声称见到未公开调查原件或已处罚。家长控制系2025既有背景，官方页面含2026-07-13更新；并非本案后的公司回应，未当新发布。政府标识图片实际从该公告HTML引用的站点资产取得；非页面404占位图，已在实际浏览器目视核查SVG为官方机构印章且加载成功。 实际桌面1776px与手机390px预览通过：五个H2、无H1，五个图片组全部加载，桌面缩略图360×288、三列保留空列，手机自然折行，无横向溢出；对照参考图核查标题、段落、分隔线与编辑结尾。"
+  },
+  {
+    "news_index": 3,
+    "event_date": "2026-10-14",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://x.ai/news/grok-voice-3",
+      "https://docs.x.ai/developers/release-notes?release=2026-10-9b9dfeba",
+      "https://artificialanalysis.ai/speech-to-speech"
+    ],
+    "notes": "实际打开14日厂商公告、API release notes与独立Artificial Analysis评测完整表格。86.9、71.6%、0.81秒与前代0.70秒均由AA表核验；未将综合第一推广为每项最好，未混淆全双工分项、任务成功率、综合指数。价格0.08美元/分钟、latest自动迁移、API不变按发布记录，正式可调用而非开源权重。Starlink比例保留公司口径且不作其他客户收益保证。原网页JSON-LD为14日00:00Z，可能为日期占位，故正文只用官方公告14日，不推断具体小时或误写今天才开放。使用og:image的本次产品发布视觉，HTTP200目视核查，非生成新闻图片。 实际桌面1776px与手机390px预览通过：五个H2、无H1，五个图片组全部加载，桌面缩略图360×288、三列保留空列，手机自然折行，无横向溢出；对照参考图核查标题、段落、分隔线与编辑结尾。"
+  },
+  {
+    "news_index": 4,
+    "event_date": "2026-10-15",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://www.figma.com/blog/introducing-figma-specs/",
+      "https://help.figma.com/hc/en-us/articles/44049066011671-Guide-to-Specs-in-Figma",
+      "https://www.figma.com/release-notes/"
+    ],
+    "notes": "公告网页直接HTTP200读取了完整HTML（web reader单独open返回不可访问），核对canonical、页面正文与JSON-LD15日04:51UTC；真实发布为15日。另实际打开官方release notes与Spec使用指南，paid plans渐进公开测试；通用beta页面列Starter与指南/发布公告有差异，正文采用本次公告付费方案限制，不声称所有用户可用。code layers公开测试、code sources封闭测试、集中设计系统仅预览分别叙述，未称端到端系统GA。图片取自同一官方公告og:image，实际内容为组件规范与Agent输入的官方示意，与正文规范上下文主题直接相关，非现场图。Python标准证书验证下载HTTP200（PowerShell TLS连接失败），已在实际浏览器复查加载成功。 实际桌面1776px与手机390px预览通过：五个H2、无H1，五个图片组全部加载，桌面缩略图360×288、三列保留空列，手机自然折行，无横向溢出；对照参考图核查标题、段落、分隔线与编辑结尾。"
+  },
+  {
+    "news_index": 5,
+    "event_date": "2026-10-14",
+    "status": [
+      "CONFIRMED",
+      "COMPANY_CLAIM",
+      "ANALYSIS"
+    ],
+    "sources": [
+      "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+      "https://www.mddi.gov.sg/newsroom/opening-address-by-minister-josephine-teo-at-the-singapore-international-cyber-week--day-2-/"
+    ],
+    "notes": "实际打开Google DeepMind完整技术文章和MDDI14日讲话，合作方向交叉核验；原公告JSON-LD为14日02:00UTC，距15日截稿约34小时，正文明确48小时补充。两阶段推理、授权、训练匿名数据为作者公开设计/公司说明，未称独立审计或所有应用上线；模型将分阶段集成，未宣布权重公开、具体设备覆盖或既有ScamShield统计等同本项目。采用原文实际SVG地址Figure_1_-_light_1.svg，HTTP200，已在实际浏览器目视核查；未用抽象新加坡旗帜装饰主视觉替代技术图。 实际桌面1776px与手机390px预览通过：五个H2、无H1，五个图片组全部加载，桌面缩略图360×288、三列保留空列，手机自然折行，无横向溢出；对照参考图核查标题、段落、分隔线与编辑结尾。"
+  }
+]

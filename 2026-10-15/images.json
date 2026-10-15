@@ -1,0 +1,42 @@
+[
+  {
+    "news_index": 1,
+    "caption": "魏哲家七月法说会资料照片，非今日现场。",
+    "source_page_url": "https://focustaiwan.tw/business/202610150009",
+    "credit": "中央社／Focus Taiwan",
+    "image_url": "https://imgcdn.cna.com.tw/Eng/WebEngPhotos/800/2026/20261015/1152x768_474250785344.jpg",
+    "fit": "cover"
+  },
+  {
+    "news_index": 2,
+    "caption": "艾奥瓦州总检察长办公室标识，机构背景素材，非庭审照片。",
+    "source_page_url": "https://www.iowaattorneygeneral.gov/newsroom/attorney-general-brenna-bird-announces-lawsuit-against-openai-for-deceiving-iowa-parents-and-iowans",
+    "credit": "Iowa Attorney General",
+    "image_url": "https://www.iowaattorneygeneral.gov/assets/images/AGSealResizedLetterhead-99a8b228d44f042f41de207e51e80152.svg",
+    "fit": "contain"
+  },
+  {
+    "news_index": 3,
+    "caption": "Grok Voice 3.0 官方发布视觉。",
+    "source_page_url": "https://x.ai/news/grok-voice-3",
+    "credit": "SpaceXSI／xAI",
+    "image_url": "https://media.x.ai/v1/website/og-grok-voice-3-0-b281361b.webp",
+    "fit": "contain"
+  },
+  {
+    "news_index": 4,
+    "caption": "Specs公告中的组件规范与Agent协作官方示意。",
+    "source_page_url": "https://www.figma.com/blog/introducing-figma-specs/",
+    "credit": "Figma",
+    "image_url": "https://cdn.sanity.io/images/599r6htc/regionalized/d89a510a2d9768f462349e3355890e600a37c52f-3840x2160.png?w=1200&q=70&fit=max&auto=format",
+    "fit": "contain"
+  },
+  {
+    "news_index": 5,
+    "caption": "两阶段端侧反诈模型架构，应用集成仍将分阶段推进。",
+    "source_page_url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+    "credit": "Google DeepMind",
+    "image_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/original_images/7e4maMVKyIrSjysg/Figure_1_-_light_1.svg",
+    "fit": "contain"
+  }
+]
